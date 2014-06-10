@@ -52,17 +52,17 @@ sudo aptitude install -y --without-recommends ubuntu-desktop >/dev/null 2>&1
 
 echo "Installing Android ADT Bundle with SDK and Eclipse..."
 cd /tmp
-sudo curl -O http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130729.zip
-sudo unzip /tmp/adt-bundle-linux-x86_64-20130729.zip >/dev/null 2>&1
+sudo curl -O http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140321.zip
+sudo unzip /tmp/adt-bundle-linux-x86_64-20140321.zip >/dev/null 2>&1
 sudo mv /tmp/adt-bundle-linux-x86_64-20130729 /usr/local/android/
-sudo rm -rf /tmp/adt-bundle-linux-x86_64-20130729.zip
+sudo rm -rf /tmp/adt-bundle-linux-x86_64-20140321.zip
 
 echo "Installing Android NDK..."
 cd /tmp
-sudo curl -O http://dl.google.com/android/ndk/android-ndk-r9-linux-x86_64.tar.bz2
-sudo tar -jxf /tmp/android-ndk-r9-linux-x86_64.tar.bz2 >/dev/null 2>&1
+sudo curl -O http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
+sudo tar -jxf /tmp/android-ndk-r9d-linux-x86_64.tar.bz2 >/dev/null 2>&1
 sudo mv /tmp/android-ndk-r9 /usr/local/android/ndk
-sudo rm -rf /tmp/android-ndk-r9-linux-x86_64.tar.bz2
+sudo rm -rf /tmp/android-ndk-r9d-linux-x86_64.tar.bz2
 
 sudo mkdir /usr/local/android/sdk/add-ons
 
