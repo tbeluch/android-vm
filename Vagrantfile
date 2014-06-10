@@ -2,25 +2,26 @@
 # vi: set ft=ruby :
 
 VAGRANTFILE_API_VERSION = "2"
-HARVARD_CLASS_NAME = "csci65"
+GATECH_CLASS_NAME = "cs6300"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.host_name = HARVARD_CLASS_NAME
+  config.vm.host_name = GATECH_CLASS_NAME
 
 	# Boot with a GUI so you can see the screen. (Default is headless)
-	# config.vm.boot_mode = :gui
+	#config.vm.boot_mode = :gui
   config.vm.provider "virtualbox" do |v|
-    v.name = HARVARD_CLASS_NAME
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    v.name = GATECH_CLASS_NAME
     v.gui = true
   end
   
   
   config.vm.provider "vmware_fusion" do |v, override|
-    config.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
-    v.name = HARVARD_CLASS_NAME
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    v.name = GATECH_CLASS_NAME
     v.gui = true
     v.vmx["memsize"] = "1024"
     v.vmx["numvcpus"] = "1"
