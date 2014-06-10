@@ -54,7 +54,7 @@ echo "Installing Android ADT Bundle with SDK and Eclipse..."
 cd /tmp
 sudo curl -O http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140321.zip
 sudo unzip /tmp/adt-bundle-linux-x86_64-20140321.zip >/dev/null 2>&1
-sudo mv /tmp/adt-bundle-linux-x86_64-20130729 /usr/local/android/
+sudo mv /tmp/adt-bundle-linux-x86_64-20140321 /usr/local/android/
 sudo rm -rf /tmp/adt-bundle-linux-x86_64-20140321.zip
 
 echo "Installing Android NDK..."
