@@ -15,8 +15,8 @@ Currently, it will provision an Android VM for development with the following sp
 	- Memory size: 1024 MB
 	- 1 vCPU
 - Ubuntu Unity Desktop as the UI launched at startup (see the provision.sh section "Install a desktop for the Android graphical tooling" for other options)
-- [Android ADT Bundle 20130729 (SDK r22.0.5 &amp; Eclipse)](http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130729.zip)
-- [Android NDK r9](http://dl.google.com/android/ndk/android-ndk-r9-linux-x86_64.tar.bz2)
+- [Android ADT Bundle 20140321 (SDK &amp; Eclipse)](http://dl.google.com/android/adt/22.6.2/adt-bundle-windows-x86_64-20140321.zip)
+- [Android NDK r9d](http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2)
 
 ## Clone the Android VM Code Repository
 
