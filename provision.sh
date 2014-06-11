@@ -8,6 +8,7 @@ sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 >/dev/nu
 sudo apt-get update >/dev/null 2>&1
 sudo apt-get install apt-file && apt-file update
 sudo apt-get install -y python-software-properties >/dev/null 2>&1
+sudo apt-get install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
 #  http://askubuntu.com/questions/147400/problems-with-eclipse-and-android-sdk
 sudo apt-get install -y ia32-libs >/dev/null 2>&1
