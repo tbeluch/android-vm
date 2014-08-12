@@ -12,39 +12,44 @@ Please feel free to contribute improvements and enhancements to the provisioning
 Currently, it will provision an Android VM for development with the following specifications,
 
 - Ubuntu Precise64 VM
-	- Memory size: 1024 MB
-	- 1 vCPU
-- Ubuntu Unity Desktop as the UI launched at startup (see the provision.sh section "Install a desktop for the Android graphical tooling" for other options)
+	- VirtualBox
+		- Memory size: 1024 MB
+		- 1 vCPU
+	- VMWare
+		- Memory size: 2048 MB
+		- 2 vCPU
+- No default desktop but a X11_forwarding option ready to use (see the provision.sh section "Install a desktop for the Android graphical tooling" for other options)
 - [Android ADT Bundle 20140321 (SDK &amp; Eclipse)](http://dl.google.com/android/adt/22.6.2/adt-bundle-windows-x86_64-20140321.zip)
 - [Android NDK r9d](http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2)
 
 ## Clone the Android VM Code Repository
 
-1. Create a working directory to use for the Android VM project in, e.g. /csci65/android-vm or C:/csci65/android-vm
+1. Create a working directory to use for the Android VM project in, e.g. /opt/dev/android-vm or C:/csci65/android-vm
 
 	In OS X &amp; Linux, e.g.
-	
-		$ mkdir /csci65/android-vm
-		$ cd /csci65/android-vm
-		
+
+		$ mkdir -p /opt/dev/android-vm
+		$ cd /opt/dev/android-vm
+
 	In Windows, e.g.
-	
-		$ mkdir c:\csci65\android-vm
-		$ cd c:\csci65\android-vm
-	
+
+		$ mkdir c:\dev\android-vm
+		$ cd c:\dev\android-vm
+
 2. Download or clone the project repository into the newly created directory on your local machine from one of the following sources,
 
 	Visit the Android-VM repository on GitHub,
-		
+	[https://github.com/tbeluch/android-vm](https://github.com/tbeluch/android-vm)
+	or the original Android-VM repository form rickfarmer:
 	[https://github.com/rickfarmer/android-vm](https://github.com/rickfarmer/android-vm)
-		
+
 	Clone the Android-VM repository directly from GitHub,
-	
-	[https://github.com/rickfarmer/android-vm.git](https://github.com/rickfarmer/android-vm.git)
-	
+
+	[https://github.com/tbeluch/android-vm.git](https://github.com/tbeluch/android-vm.git)
+
 	Download the Android-VM repository as a zip file,
-	
-	[https://github.com/rickfarmer/android-vm/archive/master.zip](https://github.com/rickfarmer/android-vm/archive/master.zip)
+
+	[https://github.com/tbeluch/android-vm/archive/master.zip](https://github.com/tbeluch/android-vm/archive/master.zip)
 
 
 ## Install Vagrant
@@ -66,23 +71,23 @@ _Note: All the software needed is automatically downloaded as it is needed.  Sev
 
 1. From the newly created working directory, e.g.
 
-		$ cd /csci65/android-vm 
+		$ cd /opt/dev/android-vm
 		$ git submodule init
 		$ git submodule update
 
 2. Run the following to start Vagrant and kick-off the process to build an Android VM,
-	
+
 	For VirtualBox,
-	
+
 		$ vagrant up
 
 	For VMware Fusion,
-	
-		$ vagrant up --provider=vmware_fusion 
 
-	For VMware Workstation
-	
-		$ vagrant up --provider=vmware_workstation 
+		$ vagrant up --provider=vmware_fusion
+
+	For VMware Workstation,
+
+		$ vagrant up --provider=vmware_workstation
 
 	_Note: As the Android VM build runs you will see various types of screen output from Vagrant, Chef and Shell scripts -- some of the dependency downloads and compilations require a bit of time.  Again, Patience is a virtue._
 3. Once the Android VM build provisioning process is complete, run the following to login via SSH,
@@ -99,9 +104,9 @@ _Note: All the software needed is automatically downloaded as it is needed.  Sev
 
 
 ## Manually Configure the Android VM in the Virtualization Provider
-	
-To connect an Android device you must manually setup a USB connection mapping for your Android device to the new VM	
-	
+
+To connect an Android device you must manually setup a USB connection mapping for your Android device to the new VM
+
 This configuration will vary with your provider (hypervisor), VMware Fusion, Workstation, or VirtualBox.
 
 For example, if using VMware Fusion perform the following steps,
@@ -129,7 +134,7 @@ _Note: To open the terminal from desktop, use ctrl-alt-T for PC or control-optio
 Vagrant boxes are just pre-configured virtual machines that Vagrant uses as a template to clone.
 
 To see the available boxes,
-	
+
 		$ vagrant box list
 		...
 		precise64   (vmware_fusion)
@@ -150,21 +155,21 @@ In the base directory (e.g. `/csci65/android-vm`) where the `Vagrantfile` is loc
 
 	For VMware Fusion,
 
-		$ vagrant up --provider=vmware_fusion 
+		$ vagrant up --provider=vmware_fusion
 
-	For VMware Workstation
+	For VMware Workstation,
 
-		$ vagrant up --provider=vmware_workstation 
+		$ vagrant up --provider=vmware_workstation
 
 - To login to your vagrant system use,
 
 		$ vagrant ssh
 
-- The basic workflow is, 
+- The basic workflow is,
 
 		$ vagrant up    # To start the VM using VirtualBox (default)
 or
-		
+
 		$ vagrant up --provider=vmware_fusion     # To start the VM using VMware Fusion (vmware_workstation for Windows users)
 			*Spins up the Android VM and loads the Ubuntu Unity desktop UI*
 		$ vagrant ssh
@@ -176,9 +181,9 @@ or
 			$ adb push
 			$ adb pull
 			... for more detail see [http://developer.android.com/tools/help/adb.html]
-		
+
 		$ android (from the command line) see [http://developer.android.com/tools/projects/projects-cmdline.html]
-		
+
 		$ vagrant status
 		$ vagrant halt  # To shutdown the VM
 or
@@ -197,5 +202,3 @@ If you are interested in the other options Vagrant offers, please see the man he
 1. [Vagrant v2 documentation](http://docs.vagrantup.com/v2/getting-started/)
 2. [http://www.vagrantbox.es/](http://www.vagrantbox.es/)
 3. [Chef Cookbooks](http://community.opscode.com/cookbooks)
-
-

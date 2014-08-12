@@ -9,6 +9,7 @@ sudo apt-get update >/dev/null 2>&1
 sudo apt-get install apt-file && apt-file update
 sudo apt-get install -y python-software-properties >/dev/null 2>&1
 sudo apt-get install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+sudo apt-get install -y xauth >/dev/null 2>&1
 
 #  http://askubuntu.com/questions/147400/problems-with-eclipse-and-android-sdk
 sudo apt-get install -y ia32-libs >/dev/null 2>&1
@@ -31,10 +32,10 @@ sudo apt-get install -y ia32-libs >/dev/null 2>&1
 #    4) echo "Installing xfce lightweight desktop..." | sudo apt-get install -y xubuntu-desktop >/dev/null 2>&1;;
 #    5) echo "Installing KDE desktop..." | sudo apt-get install -y kubuntu-desktop >/dev/null 2>&1;;
 #    6) exit
-#esac 
+#esac
 
-echo "Installing Ubuntu Unity Desktop..."
-sudo aptitude install -y --without-recommends ubuntu-desktop >/dev/null 2>&1
+#echo "Installing Ubuntu Unity Desktop..."
+#sudo aptitude install -y --without-recommends ubuntu-desktop >/dev/null 2>&1
 
 # Or, the following desktop...
 
@@ -53,14 +54,14 @@ sudo aptitude install -y --without-recommends ubuntu-desktop >/dev/null 2>&1
 
 echo "Installing Android ADT Bundle with SDK and Eclipse..."
 cd /tmp
-sudo curl -O http://dl.google.com/android/adt/22.6.2/adt-bundle-linux-x86_64-20140321.zip
+sudo curl -s -O http://dl.google.com/android/adt/22.6.2/adt-bundle-linux-x86_64-20140321.zip
 sudo unzip /tmp/adt-bundle-linux-x86_64-20140321.zip >/dev/null 2>&1
 sudo mv /tmp/adt-bundle-linux-x86_64-20140321 /usr/local/android/
 sudo rm -rf /tmp/adt-bundle-linux-x86_64-20140321.zip
 
 echo "Installing Android NDK..."
 cd /tmp
-sudo curl -O http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
+sudo curl -s -O http://dl.google.com/android/ndk/android-ndk-r9d-linux-x86_64.tar.bz2
 sudo tar -jxf /tmp/android-ndk-r9d-linux-x86_64.tar.bz2 >/dev/null 2>&1
 sudo mv /tmp/android-ndk-r9 /usr/local/android/ndk
 sudo rm -rf /tmp/android-ndk-r9d-linux-x86_64.tar.bz2
@@ -138,4 +139,3 @@ echo "			$ vagrant up --provider=vmware_workstation"
 echo " "
 echo " "
 echo "See the included README.md for more detail on how to run and work with this VM."
-

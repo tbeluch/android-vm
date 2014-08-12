@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.ssh.forward_x11 = true
   config.vm.host_name = PROJECT_NAME
 
 	# Boot with a GUI so you can see the screen. (Default is headless)
@@ -19,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 
-  config.vm.provider "vmware_fusion" do |v, override|
+  config.vm.provider "vmware_desktop" do |v, override|
     config.vm.box = "hashicorp/precise64"
     v.name = PROJECT_NAME
     v.gui = true
