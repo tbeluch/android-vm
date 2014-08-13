@@ -16,14 +16,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     config.vm.box_url = "http://files.vagrantup.com/precise64.box"
     v.name = PROJECT_NAME
-    v.gui = true
+    v.gui = false
   end
 
 
   config.vm.provider "vmware_desktop" do |v, override|
     config.vm.box = "hashicorp/precise64"
     v.name = PROJECT_NAME
-    v.gui = true
+    v.gui = false
     v.vmx["memsize"] = "2048"
     v.vmx["numvcpus"] = "2"
   end
